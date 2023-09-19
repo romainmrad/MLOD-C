@@ -25,5 +25,5 @@ struct Date{
 
 int main(void){
     Date d;
-    return EXIT_SUCCESS;
+    return 0;
 }
