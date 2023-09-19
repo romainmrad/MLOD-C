@@ -1,11 +1,12 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
-bool isPerfect(int n)
+bool isPerfect(u_int16_t n)
 {
-	int sumOfDivisors = 0;
-	for (int i = 1; i < n; i++){
+	u_int32_t sumOfDivisors = 0;
+	for (u_int16_t i = 1; i < n; i++){
 		if (n%i==0) {
 			sumOfDivisors += i;
 		}
@@ -13,8 +14,8 @@ bool isPerfect(int n)
 	return (sumOfDivisors == n);
 }
 
-void displayPerfectNumbers(int n){
-	for (int i = 0; i < n; i++){
+void displayPerfectNumbers(u_int16_t n){
+	for (u_int16_t i = 0; i < n; i++){
 		if (isPerfect(i)){
 			printf("%i est parfait\n", i);
 		}
@@ -23,7 +24,7 @@ void displayPerfectNumbers(int n){
 
 int main (void)
 {
-	int n;
+	u_int32_t n;
 	printf("Input value : ");
 	scanf("%d", &n);
 	displayPerfectNumbers(n);

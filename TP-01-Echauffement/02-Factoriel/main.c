@@ -1,10 +1,11 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
-typedef short TypeEntier;
+typedef u_int64_t TypeEntier;
 
-TypeEntier factorial(int n)
+TypeEntier factorial(TypeEntier n)
 {
 	if (n == 1)
 	{
@@ -18,9 +19,9 @@ TypeEntier factorial(int n)
 
 int main(void)
 {
-	int n;
+	u_int16_t n;
 	printf("Input number : ");
-	scanf("%d", &n);
-	printf("Factorielle de %i: %d", n, factorial(n));
+	scanf("%hd", &n);
+	printf("Factorielle de %i: %llu", n, factorial(n));
 	return EXIT_SUCCESS;
 }

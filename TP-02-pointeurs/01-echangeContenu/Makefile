@@ -1,10 +1,13 @@
 include ../../Makefile/common
 
-PROGRAMS=main
+PROGRAMS=main, tests
 
 all: $(PROGRAMS)
 
 main: main.o echangeContenu.o
+
+run: main
+	./main
 
 tests: tests.o echangeContenu.o $(TEST_LIB)
 
