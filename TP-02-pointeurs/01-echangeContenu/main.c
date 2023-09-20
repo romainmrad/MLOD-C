@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "echangeContenu.h"
 
 int main(void)
@@ -12,5 +13,5 @@ int main(void)
 	printf("a et b echanges \n");
 	printf("a = %d\tb = %d\n", a, b);
 
-	return 0;
+	return EXIT_SUCCESS;
 }

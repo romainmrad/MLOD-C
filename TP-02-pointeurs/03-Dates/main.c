@@ -1,37 +1,33 @@
-#include <stdio.h>
+#include "dates.h"
 #include <stdlib.h>
-#include <stdint.h>
-
-enum Mois
-{
-    JANVIER,
-    FEVRIER,
-    MARS,
-    AVRIL,
-    MAI,
-    JUIN,
-    JUILLET,
-    AOUT,
-    SEPTEMBRE,
-    OCTOBRE,
-    NOVEMBRE,
-    DECEMBRE
-};
-
-struct Date
-{
-    int jour;
-    enum Mois mois;
-    int annee;
-};
-
-void initialiseDate(struct Date *d)
-{
-    printf("Veuillez saisir une date");
-}
+#include <stdio.h>
 
 int main(void)
 {
-    struct Date d;
+    // Date d;
+    // initialiseDate(&d);
+    // afficheDate(&d);
+
+    // Date d;
+    // d = creerDateParCopie();
+    // afficheDate(&d);
+
+    // Date *d;
+    // d = newDate();
+    // afficheDate(d);
+    // free(d);
+
+    // Date d;
+    // d.jour = 31;
+    // d.mois = JANVIER;
+    // d.annee = 2003;
+    // printf("%s", dateValide(d)? "True": "False");
+
+    // Date d;
+    // d.jour = 31;
+    // d.mois = MARS;
+    // d.annee = 2003;
+    // printf("%d", jourDansAnnee(d));
+
     return EXIT_SUCCESS;
 }

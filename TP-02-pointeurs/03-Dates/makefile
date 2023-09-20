@@ -1,17 +1,10 @@
-CFLAGS=-D_POSIX_C_SOURCE -Wall -W -std=c11
-CC=clang
+include ../../Makefile/common
 
 PROGRAMS=main
 
 all: $(PROGRAMS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-%: %.o
-	${CC} -o $@ ${LDFLAGS} $^
-
-main: main.o
+main: main.o date.o
 
 run: main
 	./main
@@ -21,4 +14,4 @@ clean:
 
 re: clean all
 
-.PHONY: all clean re run
+.PHONY: all clean re
