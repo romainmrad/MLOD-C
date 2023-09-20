@@ -2,28 +2,36 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-typedef enum{
-    janvier, 
-    fevrier, 
-    mars, 
-    avril, 
-    mai,
-    juin,
-    juillet,
-    aout,
-    septembre,
-    octobre,
-    novembre,
-    decembre
-} mois;
+enum Mois
+{
+    JANVIER,
+    FEVRIER,
+    MARS,
+    AVRIL,
+    MAI,
+    JUIN,
+    JUILLET,
+    AOUT,
+    SEPTEMBRE,
+    OCTOBRE,
+    NOVEMBRE,
+    DECEMBRE
+};
 
-struct Date{
+struct Date
+{
     int jour;
-    mois mois;
+    enum Mois mois;
     int annee;
 };
 
-int main(void){
-    Date d;
-    return 0;
+void initialiseDate(struct Date *d)
+{
+    printf("Veuillez saisir une date");
+}
+
+int main(void)
+{
+    struct Date d;
+    return EXIT_SUCCESS;
 }
