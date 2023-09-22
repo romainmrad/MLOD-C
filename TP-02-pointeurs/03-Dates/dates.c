@@ -8,10 +8,17 @@ void initialiseDate(Date *d)
     printf("\nVeuillez saisir un numero de jour : ");
     scanf("%d", &d->jour);
     printf("Veuillez saisir un mois : ");
-    scanf("%d", &d->mois);
+    scanf("%d", (int *)&d->mois);
     printf("Veuillez saisir une année : ");
     scanf("%d", &d->annee);
 }
+
+/**
+ * On ne prefere pas cette version car elle utilise deux fois plus de memoire pour la meme operation
+ * 
+ * On cree une date dans la memoire, on lui attribue un jour, un mois et une annee
+ * puis on la recopie sur une autre date dans la memoire.
+ * */
 
 Date creerDateParCopie(void)
 {
