@@ -20,8 +20,8 @@
 typedef struct
 {
 	int16_t year;
-	char name[100];
-	char works[1024];
+	char *name;
+	char *works;
 } turingWinner;
 
 uint16_t numberOfWinners(char filename[])
@@ -88,6 +88,7 @@ turingWinner *readWinners(char filename[], uint16_t nWinners)
 				break;
 
 			case 1:
+				winners[winnerIndex].name = malloc((bufferIndex + 1) * sizeof(char));
 				strcpy(winners[winnerIndex].name, buffer);
 				break;
 			}
@@ -97,6 +98,7 @@ turingWinner *readWinners(char filename[], uint16_t nWinners)
 		}
 		else if (c == '\n')
 		{
+			winners[winnerIndex].works = malloc((bufferIndex + 1) * sizeof(char));
 			strcpy(winners[winnerIndex].works, buffer);
 			buffer[bufferIndex] = '\0';
 			bufferIndex = 0;
@@ -173,15 +175,14 @@ void sortTuringWinners(turingWinner *winners, uint16_t nWinners)
 }
 
 /**
- * Possible command line executions : 
- * 
+ * Possible command line executions :
+ *
  * ./prixTuring -o turingWinners.csv out.csv
- * 
+ *
  * ./prixTuring --info -o turingWinners.csv 2007
- * 
+ *
  * ./prixTuring --sort -o turingWinners.csv sortedWinners.csv
-*/
-
+ */
 
 int main(int argc, char *argv[])
 {
@@ -194,23 +195,30 @@ int main(int argc, char *argv[])
 	if (strcmp(argv[1], "--sort") == 0)
 	{
 		// Check for number of arguments
-		if (argc != 5){
+		if (argc != 5)
+		{
 			printf("Usage: %s --sort -o input_file sorted_file\n", argv[0]);
 			return EXIT_FAILURE;
 		}
 		// Turn on sort flag
 		sort = true;
-	} else if (strcmp(argv[1], "--info") == 0){
+	}
+	else if (strcmp(argv[1], "--info") == 0)
+	{
 		// Check for number of arguments
-		if (argc != 5){
+		if (argc != 5)
+		{
 			printf("Usage: %s --info -o input_file year_info\n", argv[0]);
 			return EXIT_FAILURE;
 		}
 		// Turn on info flag
 		info = true;
-	} else {
+	}
+	else
+	{
 		// Check for number of arguments
-		if (argc != 4){
+		if (argc != 4)
+		{
 			printf("Usage: %s -o input_file output_file\n", argv[0]);
 			return EXIT_FAILURE;
 		}
@@ -218,14 +226,26 @@ int main(int argc, char *argv[])
 	// Reading csv file
 	uint16_t nWinners = numberOfWinners(filename);
 	turingWinner *winners = readWinners(filename, nWinners);
-	if (sort){
+	if (sort)
+	{
 		// Sorting and printing in new file
 		sortTuringWinners(winners, nWinners);
-	} else if (info){
+		printWinners(winners, outputFilename, nWinners);
+	}
+	else if (info)
+	{
 		// Getting info about year
 		infoAnnee(winners, atoi(argv[argc - 1]));
 	}
 	// Printing in output file
-	printWinners(winners, outputFilename, nWinners);
+	else {
+		printWinners(winners, outputFilename, nWinners);
+	}
+	for (int i = 0; i < nWinners; i++)
+	{
+		free(winners[i].name);
+		free(winners[i].works);
+	}
+	free(winners);
 	return EXIT_SUCCESS;
 }
