@@ -9,7 +9,8 @@ main: prixTuring.o
 run: prixTuring
 	./prixTuring
 
-test: diff out.csv turingWinners.csv
+test: 
+	@diff out.csv turingWinners.csv
 
 clean:
 	@rm -f *.o $(PROGRAMS)

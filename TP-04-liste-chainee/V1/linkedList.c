@@ -1,6 +1,7 @@
-#include "liste-chainee.h"
+#include "linkedList.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define TODO NULL;
 
@@ -25,11 +26,6 @@ Liste ajoutTete(Element v, Liste l)
 	Liste res = creer(v);
 	res->suiv = l;
 	return res;
-}
-
-void afficheElement(Element e)
-{
-	printf("%i ", e);
 }
 
 // affiche tous les éléments de la liste l
@@ -61,8 +57,6 @@ void afficheListe_r(Liste l)
 		printf("\n");
 	}
 }
-
-void detruireElement(Element e) {}
 
 // Détruit tous les éléments de la liste l
 // version itérative
@@ -115,12 +109,6 @@ Liste ajoutFin_r(Element v, Liste l)
 	}
 	l->suiv = ajoutFin_r(v, l->suiv);
 	return l;
-}
-
-// compare deux elements
-bool equalsElement(Element e1, Element e2)
-{
-	return e1 == e2;
 }
 
 // Retourne un pointeur sur l'élément de la liste l contenant la valeur v ou NULL
