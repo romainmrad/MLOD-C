@@ -13,7 +13,6 @@ void afficheElement(Element e)
 
 void detruireElement(Element e)
 {
-	free(e);
 }
 
 bool equalsElement(Element e1, Element e2)
@@ -41,6 +40,8 @@ int main(void)
 	l = ajoutTete("H", l);
 
 	afficheListe_i(l);
+
+	detruire_i(l);
 
 	return EXIT_SUCCESS;
 }

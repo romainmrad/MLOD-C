@@ -1,6 +1,5 @@
-// gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche.c arbre-bin-recherche-main.c
-
-// gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche-correction.c arbre-bin-recherche-main.c
+// gcc -W -Wall -std=c99 arbre-bin-recherche.c main.c -o main
+// gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche-correction.c arbre-bin-rechesrche-main.c
 
 #include "arbre-bin-recherche.h"
 
@@ -8,32 +7,32 @@ int main(void){
 	ArbreBinaire a; //,p;
 
 	initialiser(&a);
-	// a = NULL;
+
 	printf("estVide(a)= %s\n",estVide(a)?"TRUE":"FALSE");
-	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
-	a = insere_r(a,5);
-	afficheGRD_r(a);printf("\n");
-	a = insere_r(a,3);
-	afficheGRD_r(a);printf("\n");
-	a = insere_r(a,2);
-	afficheGRD_r(a);printf("\n");
-	a = insere_r(a,3);
-	afficheGRD_r(a);printf("\n");
-	a = insere_r(a,1);
-	afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,5);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,3);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,2);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,3);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,1);
+	// afficheGRD_r(a);printf("\n");
 
-	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
-	a = insere_r(a,7);
-	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,8);
-	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,6);
-	afficheGRD_r(a);printf("\n");
-	a = insere_r(a,3);
-	afficheGRD_r(a);printf("\n");
-	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	// a = insere_r(a,7);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_i(a,8);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_i(a,6);
+	// afficheGRD_r(a);printf("\n");
+	// a = insere_r(a,3);
+	// afficheGRD_r(a);printf("\n");
+	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
 // 	a = supprimer_r(a,6);
 // 	afficheGRD_r(a);printf("\n");
@@ -82,7 +81,7 @@ int main(void){
 	// printf("suppression(5) : \n");afficheGDR_r(a);printf("\n");
 	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
-	detruire_r(a);
+	// detruire_r(a);
 
 	return EXIT_SUCCESS;
 }
